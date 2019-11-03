@@ -1,0 +1,32 @@
+{
+    "name": "codemenorg/installer",
+    "description": "Laraframe Web Installer",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Codemen Org",
+            "email": "codemenorg@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=7.2.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Codemen\\Installer\\": "src/"
+        },
+        "files": [
+            "src/helpers/functions.php"
+        ]
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Codemen\\Installer\\Providers\\InstallerServiceProvider"
+            ]
+        }
+    },
+    "config": {
+        "sort-packages": true
+    }
+}
