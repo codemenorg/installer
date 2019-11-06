@@ -5,7 +5,7 @@
 @section('content')
     @if(session()->has('response'))
         <div class="block">
-            <p><strong>{{ session()->get('response')['message'] }}</strong></p>
+            <p class="alert alert-success"><strong>{{ session()->get('response')['message'] }}</strong></p>
             <pre><code>{{ session()->get('response')['dbOutputLog'] }}</code></pre>
         </div>
     @endif
@@ -20,10 +20,10 @@
         @else
             <form style="display: inline-block" action="{{ route('installer.types.store', $type) }}" method="post">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                <button style="background: #27c847" class="button">{{ __('Run Seeds') }}</button>
+                <button class="button">{{ __('Run Seeds') }}</button>
             </form>
             <a href="{{ route($routeConfig['next_route']['name'],$routeConfig['next_route']['parameters']) }}"
-               class="button">
+               class="button danger-button">
                 {{ __('Skip') }}
                 <i class="fa fa-angle-right fa-fw" aria-hidden="true"></i>
             </a>

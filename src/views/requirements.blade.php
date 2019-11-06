@@ -5,8 +5,8 @@
 @section('content')
 
     @foreach($requirements['requirements'] as $type => $requirement)
-        <ul class="list">
-            <li class="list__item list__title {{ $phpSupportInfo['supported'] ? 'success' : 'error' }}">
+        <ul style="margin: 30px 0 10px">
+            <li class="cm-list-parent {{ $phpSupportInfo['supported'] ? 'success' : 'error' }}">
                 <strong>{{ ucfirst($type) }}</strong>
                 @if($type == 'php')
                     <strong>
@@ -24,7 +24,7 @@
                 @endif
             </li>
             @foreach($requirements['requirements'][$type] as $extention => $enabled)
-                <li class="list__item {{ $enabled ? 'success' : 'error' }}">
+                <li class="cm-list-child {{ $enabled ? 'success' : 'error' }}">
                     {{ $extention }}
                     <i class="fa fa-fw fa-{{ $enabled ? 'check-circle-o' : 'exclamation-circle' }} row-icon"
                        aria-hidden="true"></i>

@@ -8,7 +8,7 @@ class FormValidator
 
     public function __construct()
     {
-        $this->formConfig = config('installer.groups');
+        $this->formConfig = config('installer.routes');
     }
 
     public function validate($request, $fields = [])

@@ -3,10 +3,9 @@
 @section('title', $title)
 
 @section('content')
-
-    <ul class="list">
+    <ul style="margin: 30px 0 10px">
         @foreach($permissions['permissions'] as $permission)
-        <li class="list__item list__item--permissions {{ $permission['isSet'] ? 'success' : 'error' }}">
+        <li class="cm-list-child {{ $permission['isSet'] ? 'success' : 'error' }}">
             {{ $permission['folder'] }}
             <span>
                 <i class="fa fa-fw fa-{{ $permission['isSet'] ? 'check-circle-o' : 'exclamation-circle' }}"></i>

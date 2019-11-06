@@ -2,6 +2,7 @@
 
 namespace Codemen\Installer\Services;
 
+use Illuminate\Support\HtmlString;
 use Illuminate\Support\MessageBag;
 
 class FormGenerator
@@ -37,7 +38,7 @@ class FormGenerator
             '</button>' .
             '</form>';
 
-        return $formOpen . $formFields . $formClose;
+        return new HtmlString($formOpen . $formFields . $formClose);
     }
 
     private function _text($fieldName, $options)
@@ -74,6 +75,7 @@ class FormGenerator
         }
         $selectOpen = '<div class="form-group' . $errorClass . '">' .
             '<label for="' . $fieldName . '">' . $options['field_label'] . '</label>' .
+            '<div class="no-select">' .
             '<select name="' . $fieldName . '" class="form-control" id="' . $fieldName . '">';
         $selectOptions = '';
         $savedValue = $this->getValue($fieldName);
@@ -82,7 +84,7 @@ class FormGenerator
             $selectOptions .= '<option value="' . $value . '" ' . $selected . '>' . $label . '</option>';
         }
 
-        $selectEnd = '</select>' . $selectError .
+        $selectEnd = '</select></div>' . $selectError .
             '</div>';
 
         return $selectOpen . $selectOptions . $selectEnd;

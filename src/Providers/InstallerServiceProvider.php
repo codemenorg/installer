@@ -38,7 +38,7 @@ class InstallerServiceProvider extends ServiceProvider
         ], 'CodemenInstaller');
 
         $this->publishes([
-            __DIR__ . '/../assets' => public_path('installer'),
+            __DIR__ . '/../assets' => public_path('vendor/installer'),
         ], 'CodemenInstaller');
 
         $this->publishes([

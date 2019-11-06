@@ -3,7 +3,7 @@
 @section('title', $title)
 
 @section('content')
-    <h5 style="text-align: center">{{ __('Installation has been completed successfully.') }}</h5>
+    <p class="alert alert-success">{{ __('Installation has been completed successfully.') }}</p>
     <div class="buttons">
         <a class="button" href="{{ url('/') }}">{{ __('Home') }}</a>
     </div>

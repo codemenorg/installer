@@ -3,6 +3,6 @@
 @section('title', $title)
 
 @section('content')
-    {!! $form !!}
+    {{$form}}
 @endsection
 

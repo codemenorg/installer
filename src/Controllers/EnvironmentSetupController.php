@@ -2,12 +2,11 @@
 
 namespace Codemen\Installer\Controllers;
 
+use Codemen\Installer\Services\EnvironmentManager;
 use Codemen\Installer\Services\FormGenerator;
 use Codemen\Installer\Services\FormValidator;
-use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
-use Illuminate\Support\Facades\DB;
 
 class EnvironmentSetupController extends Controller
 {
@@ -51,41 +50,4 @@ class EnvironmentSetupController extends Controller
         }
     }
 
-    /**
-     * TODO: We can remove this code if PR will be merged: https://github.com/RachidLaasri/LaraframeInstaller/pull/162
-     * Validate database connection with user credentials (Form Wizard).
-     *
-     * @param Request $request
-     * @return bool
-     */
-    private function checkDatabaseConnection(Request $request)
-    {
-        $connection = $request->input('database_connection');
-
-        $settings = config("database.connections.$connection");
-
-        config([
-            'database' => [
-                'default' => $connection,
-                'connections' => [
-                    $connection => array_merge($settings, [
-                        'driver' => $connection,
-                        'host' => $request->input('database_hostname'),
-                        'port' => $request->input('database_port'),
-                        'database' => $request->input('database_name'),
-                        'username' => $request->input('database_username'),
-                        'password' => $request->input('database_password'),
-                    ]),
-                ],
-            ],
-        ]);
-
-        try {
-            DB::connection()->getPdo();
-
-            return true;
-        } catch (Exception $e) {
-            return false;
-        }
-    }
 }
