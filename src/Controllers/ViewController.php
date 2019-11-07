@@ -19,8 +19,5 @@ class ViewController extends Controller
     {
         $routeConfig = config('installer.routes.' . $type);
         return app()->make($routeConfig['controller'])->callAction('view', compact('type', 'routeConfig'));
-//        /*/*$data['form'] = FormGenerator::generate($type, 'installer.configuration.store');
-//        $data['type'] = ucwords(str_replace('_', '', $type));*/
-//        return view('vendor.installer.environment', $data);*/
     }
 }

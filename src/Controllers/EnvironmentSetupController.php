@@ -2,10 +2,9 @@
 
 namespace Codemen\Installer\Controllers;
 
+use Codemen\Installer\Requests\FormRequest;
 use Codemen\Installer\Services\EnvironmentManager;
 use Codemen\Installer\Services\FormGenerator;
-use Codemen\Installer\Services\FormValidator;
-use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 
 class EnvironmentSetupController extends Controller
@@ -26,28 +25,11 @@ class EnvironmentSetupController extends Controller
         );
     }
 
-    public function store(Request $request, $type, $routeConfig)
+    public function store(FormRequest $request)
     {
-        $variables = app(FormValidator::class)->validate($request, $routeConfig['fields']);
-
-        $this->runValidators($type, $request);
-
+        $routeConfig = $request->getRouteConfig();
+        $variables = $request->validated();
         app(EnvironmentManager::class)->save($variables);
-
         return redirect()->route($routeConfig['next_route']['name'], $routeConfig['next_route']['parameters']);
     }
-
-    private function runValidators($type, $request)
-    {
-        $validators = config('installer.groups.' . $type . '.validator');
-
-        if (is_array($validators)) {
-            foreach ($validators as $validator) {
-                app($validator)->validate($request, $type);
-            }
-        } else if (!empty($validators)) {
-            app($validators)->validate($request, $type);
-        }
-    }
-
 }

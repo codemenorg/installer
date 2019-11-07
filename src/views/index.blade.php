@@ -1,10 +1,10 @@
 @extends('vendor.installer.layouts.master')
 
-@section('title', __('Laravel Installer'))
+@section('title', config('installer.title', 'Laravel Web Installer'))
 
 @section('content')
     <p class="text-center">
-        {{ __('Installation Wizard.') }}
+        {{ __('Welcome To Installation Wizard.') }}
     </p>
     <div class="buttons">
         <a href="{{ route('installer.types', $nextRoute) }}" class="button">

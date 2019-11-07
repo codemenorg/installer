@@ -48,11 +48,11 @@ class FormGenerator
             $textError = '<span class="help-block">' . $this->errors->first($fieldName) . '</span>';
             $errorClass = ' has-error';
         }
-
+        $placeholder = $options['placeholder'] ?? '';
         $textOpen = '<div class="form-group' . $errorClass . '">';
         $textField = '<label for="' . $fieldName . '">' . $options['field_label'] . '</label>' .
             '<input type="text" class="form-control" name="' . $fieldName . '" value="' . $this->getValue($fieldName)
-            . '" />';
+            . '" placeholder="' . $placeholder . '" />';
 
 
         $textEnd = '</div>';

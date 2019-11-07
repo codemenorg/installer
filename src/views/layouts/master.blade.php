@@ -2,6 +2,7 @@
 $routes = config('installer.routes');
 $routeKeys = array_keys($routes);
 $totalRoutes = count($routeKeys) - 1;
+$title = app()->view->getSections()['title'] ?? 'Laravel Web Installer'
 ?>
     <!DOCTYPE html>
 <html>
@@ -11,10 +12,10 @@ $totalRoutes = count($routeKeys) - 1;
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>
-        @hasSection('title')
-            {{ config('app.name') }} {{ __('Installer') }} | @yield('title', config('app.name'))
+        @if($title == config('installer.title'))
+            {{ config('installer.title') }}
         @else
-            {{ config('app.name') }} {{ __('Installer') }}
+            {{ config('installer.title') }} | @yield('title', config('app.name'))
         @endif
     </title>
     <link rel="icon" type="image/png" href="{{ asset('installer/img/favicon.png') }}" sizes="64x64"/>
@@ -30,21 +31,21 @@ $totalRoutes = count($routeKeys) - 1;
             }
 
             {{'#installer-step-'.$key}}:checked ~ {{'#installer-step-left-'.(empty($key) ? 0 : ($key-1))}} ,
-            {{'#installer-step-'.$key}}:checked ~ {{'#installer-step-right-'.($key>=$totalRoutes ? $totalRoutes : ($key+1))}}       {
+            {{'#installer-step-'.$key}}:checked ~ {{'#installer-step-right-'.($key>=$totalRoutes ? $totalRoutes : ($key+1))}}        {
                 display: initial;
                 opacity: 1;
                 cursor: pointer;
             }
 
             @if($key-1 <= 1)
-                    {{'#installer-step-'.$key}}:checked ~ {{'#installer-step-left-'.(empty($key) ? 0 : ($key-1))}}       {
+                    {{'#installer-step-'.$key}}:checked ~ {{'#installer-step-left-'.(empty($key) ? 0 : ($key-1))}}        {
                 color: #333;
                 cursor: initial;
             }
 
             @endif
                 @if($key+1 >= ($totalRoutes-1))
-                    {{'#installer-step-'.$key}}:checked ~ {{'#installer-step-right-'.($key>=$totalRoutes ? $totalRoutes : ($key+1))}}       {
+                    {{'#installer-step-'.$key}}:checked ~ {{'#installer-step-right-'.($key>=$totalRoutes ? $totalRoutes : ($key+1))}}        {
                 color: #333;
                 cursor: initial;
             }

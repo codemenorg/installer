@@ -2,8 +2,8 @@
 
 namespace Codemen\Installer\Controllers;
 
+use Codemen\Installer\Requests\FormRequest;
 use Codemen\Installer\Services\DatabaseService;
-use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 
 class SeedingController extends Controller
@@ -32,7 +32,7 @@ class SeedingController extends Controller
         );
     }
 
-    public function store(Request $request, $type, $routeConfig)
+    public function store(FormRequest $request)
     {
         set_time_limit(120);
         $response = $this->databaseService->seed();
