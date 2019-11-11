@@ -57,7 +57,7 @@ The current features are :
 |File|File Information|
 |:------------|:------------|
 |`config/installer.php`|In here you can set the requirements along with the folders permissions for your application to run, by default the array contains the default requirements for a basic Laravel app.|
-|`public/vendor/installer`|This folder contains a css folder and inside of it you will find a `style.min.css` file, this file is responsible for the styling of your installer, you can override the default styling and add your own.|
+|`public/vendor/installer`|This folder contains a css folder and inside of it you will find a `style.css` file, this file is responsible for the styling of your installer, you can override the default styling and add your own.|
 |`resources/views/vendor/installer`|This folder contains the HTML code for your installer, it is 100% customizable, give it a look and see how nice/clean it is.|
 
 ## Contributing
