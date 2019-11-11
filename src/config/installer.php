@@ -6,7 +6,7 @@ use Codemen\Installer\Controllers\MigrationsController;
 use Codemen\Installer\Controllers\PermissionsController;
 use Codemen\Installer\Controllers\RequirementsController;
 use Codemen\Installer\Controllers\SeedingController;
-use Codemen\Installer\Services\DatabaseValidator;
+use Codemen\Installer\Validators\DatabaseValidator;
 
 return [
 
