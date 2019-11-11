@@ -15,8 +15,7 @@ class FinalController extends Controller
             compact(
                 'type',
                 'routeConfig',
-                'title',
-                'response'
+                'title'
             )
         );
     }

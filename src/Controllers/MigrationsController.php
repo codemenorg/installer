@@ -27,8 +27,7 @@ class MigrationsController extends Controller
             compact(
                 'type',
                 'routeConfig',
-                'title',
-                'response'
+                'title'
             )
         );
     }
