@@ -35,6 +35,6 @@ class SeedingController extends Controller
     {
         set_time_limit(120);
         $response = $this->databaseService->seed();
-        return redirect()->back()->with(compact('response', 'isRollback'));
+        return redirect()->back()->with(compact('response'));
     }
 }
