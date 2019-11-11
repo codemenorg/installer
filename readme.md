@@ -52,7 +52,11 @@ The current features are :
 	* In order to install your application, go to the `/install` route and follow the instructions.
 	* Once the installation has finished `APP_INSTALLED` environment variable be placed into the `.env` file with value `true`. If this `APP_INSTALLED` is `true` then the route `/install` will abort to the 404 page or you can redirect to your specific route by editing `installer.` config file.
 
-* Additional Files and folders published to your project :
+* To redirect to install page until the installation is done, you need to add the following middleware in the `middlewareGroups => web` section in `app/Http/Kernel.php`: 
+```
+\Codemen\Installer\Middleware\RedirectIfNotInstalled::class,
+```
+This middleware configuration is optional and can be skipped.
 
 |File|File Information|
 |:------------|:------------|
