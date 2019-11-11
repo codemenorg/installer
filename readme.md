@@ -1,4 +1,4 @@
-# Codemen Installer | A Laravel Web Installer [Package](https://packagist.org/packages/codemenorg/installer)
+# Codemen - Laravel Web Installer [Package](https://packagist.org/packages/codemenorg/installer)
 
 
 - [About](#about)
@@ -69,6 +69,6 @@ This middleware configuration is optional and can be skipped.
 * If you have any suggestions please let me know : https://github.com/codemenorg/installer/pulls.
 
 ## License
-Laravel Web Installer is licensed under the MIT license. Enjoy!
+Codemen - Laravel Web Installer is licensed under the MIT license. Enjoy!
 
 ##
