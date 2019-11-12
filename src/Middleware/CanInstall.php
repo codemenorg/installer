@@ -38,6 +38,10 @@ class CanInstall
             }
         }
 
+        if ($request->route('types', false) && !in_array($request->route('types'), array_keys(config('installer.routes', [])))) {
+            abort(404);
+        }
+
         return $next($request);
     }
 
