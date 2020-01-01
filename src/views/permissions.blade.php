@@ -3,7 +3,7 @@
 @section('title', $title)
 
 @section('content')
-    <ul style="margin: 30px 0 10px">
+    <ul class="mt-4 mb-2 mx-0">
         @foreach($permissions['permissions'] as $permission)
         <li class="cm-list-child {{ $permission['isSet'] ? 'success' : 'error' }}">
             {{ $permission['folder'] }}

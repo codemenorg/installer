@@ -18,7 +18,7 @@
                 <i class="fa fa-angle-right fa-fw" aria-hidden="true"></i>
             </a>
         @else
-            <form style="display: inline-block" action="{{ route('installer.types.store', $type) }}" method="post">
+            <form class="d-inline-block" action="{{ route('installer.types.store', $type) }}" method="post">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
                 <button class="button">{{ __('Run Seeds') }}</button>
             </form>

@@ -68,9 +68,7 @@ $title = app()->view->getSections()['title'] ?? 'Laravel Web Installer'
     @yield('style')
 </head>
 <body>
-<style>
 
-</style>
 <div class="installation-wrapper">
     <div class="installation-inner">
         <div class="installation-content">

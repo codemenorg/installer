@@ -12,7 +12,7 @@
 
     <div class="buttons">
         @if(session()->has('response') && !session()->get('isRollback', true))
-            <form style="display: inline-block" action="{{ route('installer.types.store', $type) }}" method="post">
+            <form class="d-inline-block" action="{{ route('installer.types.store', $type) }}" method="post">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
                 <input type="hidden" name="action" value="rollback">
                 <button class="button danger-button">{{ __('Rollback') }}</button>

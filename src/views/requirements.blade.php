@@ -5,7 +5,7 @@
 @section('content')
 
     @foreach($requirements['requirements'] as $type => $requirement)
-        <ul style="margin: 30px 0 10px">
+        <ul class="mt-4 mb-2 mx-0">
             <li class="cm-list-parent {{ $phpSupportInfo['supported'] ? 'success' : 'error' }}">
                 <strong>{{ ucfirst($type) }}</strong>
                 @if($type == 'php')
