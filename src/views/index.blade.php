@@ -1,6 +1,6 @@
 @extends('vendor.installer.layouts.master')
 
-@section('title', config('installer.title', 'Laravel Web Installer'))
+@section('title', config('installer.title', 'Codemen Web Installer'))
 
 @section('content')
     <p class="text-center">
