@@ -2,7 +2,6 @@
 $routes = config('installer.routes');
 $routeKeys = array_keys($routes);
 $totalRoutes = count($routeKeys) - 1;
-$title = app()->view->getSections()['title'] ?? 'Laravel Web Installer'
 ?>
     <!DOCTYPE html>
 <html>
@@ -12,10 +11,10 @@ $title = app()->view->getSections()['title'] ?? 'Laravel Web Installer'
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>
-        @if($title == config('installer.title'))
-            {{ config('installer.title') }}
+        @if(config('installer.title'))
+            {{ config('installer.title') }} | @yield('title', 'Codemen Web Installer')
         @else
-            {{ config('installer.title') }} | @yield('title', config('app.name'))
+             @yield('title', 'Codemen Web Installer')
         @endif
     </title>
     <link rel="icon" type="image/png" href="{{ asset('installer/img/favicon.png') }}" sizes="64x64"/>
