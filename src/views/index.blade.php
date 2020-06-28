@@ -1,7 +1,5 @@
 @extends('vendor.installer.layouts.master')
 
-@section('title', "Welcome To Installation Wizard")
-
 @section('content')
     <p class="text-center">
         {{ __('Welcome To Installation Wizard.') }}
