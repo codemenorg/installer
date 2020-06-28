@@ -2,6 +2,7 @@
 $routes = config('installer.routes');
 $routeKeys = array_keys($routes);
 $totalRoutes = count($routeKeys) - 1;
+$title = app()->view->getSections()['title'] ?? ''
 ?>
     <!DOCTYPE html>
 <html>
@@ -11,10 +12,10 @@ $totalRoutes = count($routeKeys) - 1;
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>
-        @if(config('installer.title'))
-            {{ config('installer.title') }} | @yield('title', 'Codemen Web Installer')
+        @if($title)
+            {{ sprintf("%s Installer", env('APP_NAME', 'Codemen')) }} | @yield('title')
         @else
-             @yield('title', 'Codemen Web Installer')
+             {{ sprintf("%s Installer", env('APP_NAME', 'Codemen')) }}
         @endif
     </title>
     <link rel="icon" type="image/png" href="{{ asset('installer/img/favicon.png') }}" sizes="64x64"/>
